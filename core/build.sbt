@@ -12,7 +12,9 @@ libraryDependencies ++= Seq(
   "com.thinkaurelius.titan" % "titan-core"       % "1.1.0-SNAPSHOT",
   "org.apache.tinkerpop"    % "gremlin-core"     % "3.1.1-incubating",
   "com.google.protobuf"     % "protobuf-java"    % "3.0.0-beta-2",
-  "com.google.protobuf"     % "protoc"           % "3.0.0-beta-2"
+  "com.google.protobuf"     % "protoc"           % "3.0.0-beta-2",
+  "org.scalactic"           %% "scalactic"       % "2.2.6",
+  "org.scalatest"           %% "scalatest"       % "2.2.6" % "test"
 )
 
 resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository"
