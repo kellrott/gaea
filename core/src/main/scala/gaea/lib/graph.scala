@@ -13,6 +13,7 @@ import org.apache.tinkerpop.gremlin.structure.Graph.Variables
 import org.apache.tinkerpop.gremlin.structure.{Transaction, Edge, Vertex, Graph}
 
 import com.google.protobuf.AbstractMessage
+import com.google.protobuf.Descriptors
 
 import collection.JavaConverters._
 
@@ -21,8 +22,23 @@ class GraphMessage {
 }
 
 trait GraphRule {
-  def messageIsVertex(msg : AbstractMessage)
-  def generateEdges()
+  def generateEdges(msg: AbstractMessage, graph: Graph) : Array[Edge]
+  def generateVertices(msg: AbstractMessage, graph: Graph): Array[Vertex]
+}
+
+class EdgeGenerateRule(rule: Map[String,Any]) extends GraphRule {
+  def generateEdges(msg: AbstractMessage, graph: Graph) : Array[Edge] = {
+
+    val f = msg.getAllFields.asScala.filter( x => x._1.getName == rule("srcField") ).toList
+    if (f.length == 1) {
+
+    }
+    return Array[Edge]()
+  }
+  def generateVertices(msg: AbstractMessage, graph: Graph) : Array[Vertex] = {
+    return Array[Vertex]()
+  }
+
 }
 
 object GaeaRuleReader {

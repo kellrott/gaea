@@ -1,4 +1,4 @@
 - 
   type: edgeGenerate
-  messageType: Feature
-  
+  srcType: BioSample
+  dstType: Individual
